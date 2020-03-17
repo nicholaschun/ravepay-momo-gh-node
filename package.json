@@ -1,6 +1,6 @@
 {
   "name": "rave-pay-momogh",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "momo pay for Ghana based on rave pay",
   "main": "index.js",
   "scripts": {

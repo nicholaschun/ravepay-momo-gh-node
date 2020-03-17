@@ -26,7 +26,6 @@ app.get('/', async (req, res) => {
     txRef: 'MC-' + Date.now(),
     orderRef: 'MC_' + Date.now(),
     is_mobile_money_gh: 1,
-    redirect_url: 'https://rave-webhook.herokuapp.com/receivepayment',
     device_fingerprint: '69e6b7f0b72037aa8428b70fbe03986c'
   }
 

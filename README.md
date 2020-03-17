@@ -10,6 +10,8 @@
 const ravePublicKey = 'FLWPUBK_TEST-352d05d1db792a7723959f5f5fb62fca-X'
 const raveSecretKey = 'FLWSECK_TEST-53843f51526db031bc35c98571cd2b4d-X'
 
+const ghmomo = require('rave-pay-momogh/services/ghMomo')
+
 const momo = new GhMomo(raveSecretKey, ravePublicKey, raveRedirectUrl)
 
 const payload = {
