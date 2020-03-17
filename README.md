@@ -5,12 +5,15 @@
 ### Initiate Charge
 - `npm i rave-pay-momogh`
 
--  
+-  Get `ravePublicKey` and `raveSecretKey` from flutterwave dashboard after registering.
+
+-  Create a webhook on flutterwave dashboard  to send responses to after user has confirmed payments. Use that webhook url as `raveRedirectUrl`
+
 ```const raveRedirectUrl = 'http://127.0.0.1:3000/api/v1/payments/recievepay'
 const ravePublicKey = 'FLWPUBK_TEST-352d05d1db792a7723959f5f5fb62fca-X'
 const raveSecretKey = 'FLWSECK_TEST-53843f51526db031bc35c98571cd2b4d-X'
 
-const ghmomo = require('rave-pay-momogh/services/ghMomo')
+const GhMomo = require('rave-pay-momogh/services/ghMomo')
 
 const momo = new GhMomo(raveSecretKey, ravePublicKey, raveRedirectUrl)
 
@@ -41,3 +44,17 @@ const payload = {
   }
 
 ```
+
+### Verify Payment
+- Get `txRef` from the previous initiate charge endpoint
+```
+ const txRef = 'MC-1584415630221'
+  try {
+    const { data } = await momo.verifyPayment(txRef)
+    return res.json(data)
+  } catch (error) {
+    console.log(error)
+  }
+
+  ```
+

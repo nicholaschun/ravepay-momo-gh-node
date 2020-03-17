@@ -10,7 +10,7 @@ const port = 3000
 
 const momo = new GhMomo(raveSecretKey, ravePublicKey, raveRedirectUrl)
 
-app.get('/', async (req, res) => {
+app.post('/', async (req, res) => {
   const payload = {
     currency: 'GHS',
     payment_type: 'mobilemoneygh',
@@ -31,6 +31,16 @@ app.get('/', async (req, res) => {
 
   try {
     const { data } = await momo.charge(payload)
+    return res.json(data)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+app.post('/verifypay', async (req, res) => {
+  const txRef = 'MC-1584415630221'
+  try {
+    const { data } = await momo.verifyPayment(txRef)
     return res.json(data)
   } catch (error) {
     console.log(error)
