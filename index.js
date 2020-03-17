@@ -31,7 +31,7 @@ app.get('/', async (req, res) => {
   }
 
   try {
-    const { data } = await momo.initaiteCharge(payload)
+    const { data } = await momo.charge(payload)
     return res.json(data)
   } catch (error) {
     console.log(error)
